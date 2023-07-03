@@ -12,10 +12,14 @@
 </head>
 <body>
     <div class="container">
-        <div>
-            <h1 class="m-3">Welcome {{user.first_name}}!</h1>
+        <div class="d-flex justify-content-between">
+            <h3 class="header-content" >Wall Page</h3>
+            <div class="d-flex">
+                <h3>Welcome {{user.first_name}}!</h3>
+                <a href="/logout" class="btn btn-primary ml-1">Logout</a>
+            </div>
         </div>
-        <a href="/logout" class="btn btn-primary mt-3">Logout</a>
+        <hr>
         <h4>What's on your mind? Create a new post...</h4>
         <form action="/posts" method="POST">
             <textarea name="content" id="" cols="30" rows="10" placeholder="Enter text..."></textarea>
@@ -39,7 +43,7 @@
         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni quaerat labore tempora nobis quisquam sed dignissimos laborum error ullam possimus, vitae nisi ducimus asperiores eveniet repellat saepe atque officia adipisci.
         Minus quidem, voluptatibus enim nobis magnam molestiae consequatur vero quos mollitia deleniti delectus, cum quibusdam reprehenderit pariatur dolorem? Ipsa optio vero numquam odit architecto perspiciatis esse sunt asperiores inventore. Voluptatum?
         Placeat inventore enim at nostrum beatae quo perferendis delectus, doloribus tempore fuga quod a eligendi expedita ullam officia provident non quidem minus quia veritatis ducimus eum? Corrupti maxime perferendis doloribus!</p>
-        <a href="/posts/delete" class="btn btn-danger" >Delete</a>
+        <a href="/posts/delete/1" class="btn btn-danger" >Delete</a>
     </div>
 </body>
 </html>
