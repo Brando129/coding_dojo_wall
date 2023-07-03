@@ -1,5 +1,5 @@
 from flask_app import app
-from flask import redirect, request, flash
+from flask import redirect, request
 from flask_app.models import models_post
 
 # GET routes

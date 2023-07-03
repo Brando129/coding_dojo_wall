@@ -34,21 +34,29 @@
         <!-- End of Flash messages -->
         <!-- Form -->
         <form class="form-control bg-dark p-5 mb-3" action="/posts" method="POST">
-            <textarea name="content" id="" cols="140" rows="10" placeholder="Enter text..."></textarea>
+            <textarea name="content" cols="140" rows="10" placeholder="Enter text..."></textarea>
             <input class="btn btn-primary mt-2" type="submit" value="Publish">
             <input type="hidden" name="user_id" value="{{user.id}}">
         </form>
         <!-- End of Form -->
         <h3 class="text-center">All Community Posts</h3>
         <hr>
-        {% for post in posts | reverse %}
-        <p><em>{{post.user.first_name}}says - {{post.created_at.strftime("%b %d %Y")}}:</em></p>
-        <p>{{post.content}}</p>
-        {% if post.user.id == user.id %}
-        <a href="/posts/delete/{{post.id}}" class="btn btn-danger">Delete</a>
-        {% endif %}
-        <hr>
-        {% endfor %}
+        <div class="flex-inline">
+            {% for post in posts | reverse %}
+            <p><em>{{post.user.first_name}}says - {{post.created_at.strftime("%b %d %Y")}}:</em></p>
+            <p>{{post.content}}</p>
+            {% if post.user.id == user.id %}
+            <a href="/posts/delete/{{post.id}}" class="btn btn-danger">Delete</a>
+            {% endif %}
+            <h5>post a comment</h5>
+            <form class="form-control bg-dark p-5 mb-2" action="/comments" method="POST">
+                <textarea name="content" id="" cols="140" rows="5" placeholder="Enter text..."></textarea>
+                <input class="btn btn-primary mt-2" type="submit" value="Comment">
+                <input type="hidden" name="user_id" value="{{user.id}}">
+            </form>
+            <hr>
+            {% endfor %}
+        </div>
     </div>
     <!-- End of Page Container -->
 </body>
