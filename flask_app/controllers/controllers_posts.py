@@ -6,7 +6,7 @@ from flask_app.models import models_post
 @app.route('/posts/delete/<post_id>')
 def destroy_post(post_id):
     print("Deleting post - ", post_id)
-    # Post.destroy(post_id)
+    models_post.Post.destroy(post_id)
     return redirect('/wall')
 
 
@@ -15,6 +15,6 @@ def destroy_post(post_id):
 def create_post():
     print("Create post route...")
     print(request.form)
-    # Post.save(request.form)
+    models_post.Post.save_post(request.form)
     return redirect('/wall')
 

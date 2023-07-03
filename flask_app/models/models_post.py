@@ -20,10 +20,17 @@ class Post:
     @classmethod
     def save_post(cls, data):
         print("Creating post...")
-        query = """INSERT INTO posts (content)
-                VALUES (%(content)s);"""
+        query = """INSERT INTO posts (content, user_id)
+                VALUES (%(content)s, %(user_id)s);"""
         print("Saving post...")
         return connectToMySQL(db).query_db(query, data)
+
+    # Classmethod for deleting a post.
+    def destroy(cls, post_id):
+        print("Destroying the post...")
+        query = "DELETE FROM posts WHERE id = %(id)s"
+        connectToMySQL(db).query_db(query, {"id": post_id})
+        return post_id
 
     #Classmethod for getting all the posts.
     @classmethod
