@@ -12,6 +12,9 @@ class Post:
         self.content = data['content']
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
+        """We make a user object so every time a post
+        is made we store the user object rather than the user id"""
+        self.user = data['user']
 
     # Classmethod for creating/saving a post.
     @classmethod
