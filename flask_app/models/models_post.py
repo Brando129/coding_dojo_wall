@@ -28,6 +28,7 @@ class Post:
         return connectToMySQL(db).query_db(query, data)
 
     # Classmethod for deleting a post.
+    @classmethod
     def destroy(cls, post_id):
         print("Destroying the post...")
         query = "DELETE FROM posts WHERE id = %(id)s"
@@ -64,3 +65,14 @@ class Post:
             # Add post to all_posts list
             all_posts.append(new_post)
         return all_posts
+
+    # Staticmethod for checking if a user's post is blank.
+    @staticmethod
+    def validate_post(data):
+        print("Validating post data...")
+        is_valid = True
+        if len(data['content']) <= 0:
+            flash("* Post content must not be blank", "post")
+            is_valid = False
+        print("Validation successful...")
+        return is_valid

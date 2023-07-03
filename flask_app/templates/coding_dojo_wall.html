@@ -15,24 +15,33 @@
         <div class="d-flex justify-content-between">
             <h3 class="header-content" >Wall Page</h3>
             <div class="d-flex">
-                <h3>Welcome {{user.first_name}}!</h3>
+                <h3>Welcome, {{user.first_name}}!</h3>
                 <a href="/logout" class="btn btn-primary ml-1">Logout</a>
             </div>
         </div>
         <hr>
         <h4>What's on your mind? Create a new post...</h4>
+        <!-- Flash messages -->
+        {% with messages = get_flashed_messages(category_filter=['post']) %}     <!-- declare a variable called messages -->
+            {% if messages %}                            <!-- check if there are any messages -->
+                {% for message in messages %}            <!-- loop through the messages -->
+                    <p class="text-danger">{{message}}</p>                   <!-- display each message in a paragraph tag -->
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <!-- End of Flash messages -->
         <form action="/posts" method="POST">
-            <textarea name="content" id="" cols="30" rows="10" placeholder="Enter text..."></textarea>
+            <textarea name="content" id="" cols="150" rows="10" placeholder="Enter text..."></textarea>
             <input class="btn btn-primary" type="submit" value="Publish">
             <input type="hidden" name="user_id" value="{{user.id}}">
         </form>
         <hr>
-        <h3>All Community Posts:</h3>
+        <h3>All Community Posts</h3>
         {% for post in posts %}
         <p><em>{{post.user.first_name}}says - {{post.created_at.strftime("%b %d")}}:</em></p>
         <p>{{post.content}}</p>
         {% if post.user.id == user.id %}
-        <a href="/posts/delete/{{post.id}}" class="btn btn-danger" >Delete</a>
+        <a href="/posts/delete/{{post.id}}" class="btn btn-danger">Delete</a>
         {% endif %}
         <hr>
         {% endfor %}
