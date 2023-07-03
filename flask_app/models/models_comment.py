@@ -15,7 +15,7 @@ class Comment:
         self.updated_at = data['updated_at']
         self.user = data['user']
 
-    # Classmethod for creating/saving a post.
+    # Classmethod for creating/saving a comment.
     @classmethod
     def save_comment(cls, data):
         print("Creating comment...")
@@ -31,9 +31,9 @@ class Comment:
         query = "DELETE FROM comments WHERE id = %(id)s"
         connectToMySQL(db).query_db(query, {"id": post_id})
         print("Comment successfully deleted...")
-        return post_id
+        return post_id # post_id may need changed
 
-    # Staticmethod for checking if a user's post is blank.
+    # Staticmethod for checking if a user's comment is blank.
     @staticmethod
     def validate_comment(data):
         print("Validating comment data...")
