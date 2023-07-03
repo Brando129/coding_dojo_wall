@@ -11,6 +11,72 @@
     <title>Registration and Login</title>
 </head>
 <body>
-    
+    <!-- Page Container -->
+    <div class="container col-md-6">
+        <h3 class="banner" >Coding Dojo Wall</h3>
+        <!-- Forms Container -->
+        <div class="d-flex justify-content-between mt-3">
+            <!-- Registration Form -->
+            <form action="/register" class="col-md-5 p-4 bg-dark text-light" method="POST">
+                <h1 class="text-primary" >Registration</h1>
+                <!-- Flash messages -->
+                {% with messages = get_flashed_messages(category_filter=['register']) %}     <!-- declare a variable called messages -->
+                    {% if messages %}                            <!-- check if there are any messages -->
+                        {% for message in messages %}            <!-- loop through the messages -->
+                            <p class="text-danger">{{message}}</p>                   <!-- display each message in a paragraph tag -->
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+                <!-- End of Flash messages -->
+                <div class="form-group mb-2">
+                    <label for="first_name">First name:</label>
+                    <input type="text" name="first_name" class="form-control">
+                </div>
+                <div class="form-group mb-2">
+                    <label for="last_name">Last name:</label>
+                    <input type="text" name="last_name" class="form-control">
+                </div>
+                <div class="form-group mb-2">
+                    <label for="email">Email:</label>
+                    <input type="text" name="email" class="form-control">
+                </div>
+                <div class="form-group mb-2">
+                    <label for="password">Password:</label>
+                    <input type="text" name="password" class="form-control">
+                </div>
+                <div class="form-group mb-2">
+                    <label for="confirm_password">Confirm Password:</label>
+                    <input type="text" name="confirm_password" class="form-control">
+                </div>
+                <button class="btn btn-primary mt-3">Submit</button>
+            </form>
+            <!-- End of Registration Form -->
+            <!-- Login Form -->
+            <form action="/login" class="col-md-5 p-4 bg-dark text-light" method="POST">
+                <h1 class="text-success" >Log in</h1>
+                <!-- Flash messages -->
+                {% with messages = get_flashed_messages(category_filter=['login']) %}     <!-- declare a variable called messages -->
+                    {% if messages %}                            <!-- check if there are any messages -->
+                        {% for message in messages %}            <!-- loop through the messages -->
+                            <p class="text-danger">{{message}}</p>                   <!-- display each message in a paragraph tag -->
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+                <!-- End of Flash messages -->
+                <div class="form-group mb-2">
+                    <label for="email">Email:</label>
+                    <input type="text" name="email" class="form-control">
+                </div>
+                <div class="form-group mb-2">
+                    <label for="password">Password:</label>
+                    <input type="text" name="password" class="form-control">
+                </div>
+                <button class="btn btn-success mt-3">Submit</button>
+            </form>
+            <!-- End of Login Form -->
+        </div>
+        <!-- End of Forms Container -->
+    </div>
+    <!-- End of Page Container -->
 </body>
 </html>
