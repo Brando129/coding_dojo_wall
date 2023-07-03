@@ -24,27 +24,18 @@
         <form action="/posts" method="POST">
             <textarea name="content" id="" cols="30" rows="10" placeholder="Enter text..."></textarea>
             <input class="btn btn-primary" type="submit" value="Publish">
-            <input type="hidden" name="user_id">
+            <input type="hidden" name="user_id" value="{{user.id}}">
         </form>
         <hr>
         <h3>All Community Posts:</h3>
-        <p><em>Herbert says - Jan 20:</em></p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit, optio quo atque porro maiores exercitationem, nihil quibusdam, placeat laboriosam eos velit officia iste corrupti consectetur cumque nesciunt voluptatum sit omnis.
-        Nisi, ullam ut? Iusto voluptate impedit maiores, officia blanditiis deserunt dolore reprehenderit rerum provident odio, earum sed natus pariatur nihil soluta est voluptatum saepe cumque obcaecati fugit id enim? Magni?
-        Nemo dignissimos quaerat repellendus sunt iste tempora incidunt voluptatem tempore atque et beatae, aspernatur quas neque nostrum voluptate nihil laudantium ab reiciendis. Harum perspiciatis officia ducimus enim vitae ab quasi.
-        Rem maxime consequuntur, dolorum illo maiores ullam delectus aliquam libero mollitia expedita, odio laboriosam omnis repellendus. Nostrum tenetur unde culpa, ad, quod, quidem animi accusantium quas sunt quo corporis laudantium?
-        Debitis eligendi, voluptatem perferendis ad nam magni hic commodi facere, odio beatae, porro sapiente nemo corrupti? Eum sit saepe sequi optio numquam, accusantium, laudantium, ducimus harum accusamus facere et. Facilis!
-        Quasi in debitis quaerat ut rem minus fuga quis voluptate at aperiam quod, perferendis a ab, cumque expedita tempora id minima molestiae, facilis voluptatum? Ea, sapiente hic! Saepe, qui numquam!
-        Dolor, non! Facere voluptatem, deleniti temporibus, ipsa repellendus minima minus ducimus cupiditate distinctio perferendis delectus aspernatur quia quas architecto reiciendis placeat incidunt dolores nobis dicta sunt officia? Quaerat, perferendis tenetur!
-        Optio aliquam explicabo fugit id nemo unde itaque eaque accusamus, consectetur quas nam nisi exercitationem molestias, obcaecati culpa modi saepe rerum deserunt sed assumenda beatae sint! Aut magni cupiditate perferendis.
-        Architecto aperiam mollitia sapiente, voluptatibus perspiciatis deserunt tempore debitis dolores unde fuga ratione sint totam incidunt quidem laudantium cupiditate nam tempora non at hic ad! Facere reiciendis dolor dignissimos nesciunt.
-        Quas deserunt adipisci, est rerum, perspiciatis culpa ratione dignissimos facere natus debitis nostrum dicta, sint repudiandae earum odit incidunt numquam repellendus quo nesciunt. Fugiat, ex? Consequatur mollitia ex voluptas quas.</p>
+        {% for post in posts %}
+        <p><em>{{post.user.first_name}}says - {{post.created_at.strftime("%b %d")}}:</em></p>
+        <p>{{post.content}}</p>
+        {% if post.user.id == user.id %}
+        <a href="/posts/delete/{{post.id}}" class="btn btn-danger" >Delete</a>
+        {% endif %}
         <hr>
-        <p><em>Sally says - Jan 20:</em></p>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni quaerat labore tempora nobis quisquam sed dignissimos laborum error ullam possimus, vitae nisi ducimus asperiores eveniet repellat saepe atque officia adipisci.
-        Minus quidem, voluptatibus enim nobis magnam molestiae consequatur vero quos mollitia deleniti delectus, cum quibusdam reprehenderit pariatur dolorem? Ipsa optio vero numquam odit architecto perspiciatis esse sunt asperiores inventore. Voluptatum?
-        Placeat inventore enim at nostrum beatae quo perferendis delectus, doloribus tempore fuga quod a eligendi expedita ullam officia provident non quidem minus quia veritatis ducimus eum? Corrupti maxime perferendis doloribus!</p>
-        <a href="/posts/delete/1" class="btn btn-danger" >Delete</a>
+        {% endfor %}
     </div>
 </body>
 </html>
