@@ -7,13 +7,13 @@ bcrypt = Bcrypt(app) # We are creating an object called bcrypt,
 # which is made by invoking the function Bcrypt with our app as an argument.
 
 # Get Routes
-# Route for rendering the "Dashboard Page"
+# Route for rendering the "Registration and Login page"
 @app.route('/')
 def index():
     return render_template('dashboard.html')
 
 # Route for checking if a user is in session.
-@app.route('/homepage')
+@app.route('/wall')
 def check_session():
     print('Checking if user id is in session route...')
     if 'user_id' not in session:
@@ -22,12 +22,12 @@ def check_session():
         "id": session['user_id']
     }
     print("Successfully got the user id...")
-    return render_template('homepage.html', user=models_user.User.get_by_id(data))
+    return render_template('coding_dojo_wall.html', user=models_user.User.get_by_id(data))
 
 # Route for logging a user out
 @app.route('/logout')
 def logout():
-    print("Logging out")
+    print("Logging out...")
     session.clear()
     return redirect('/')
 
@@ -53,7 +53,7 @@ def register():
     This is how we keep our applications safe."""
     id = models_user.User.save(data)
     session['user_id'] = id
-    return redirect('/homepage')
+    return redirect('/wall')
 
 # Route for logging a user in.
 @app.route('/login', methods=['POST'])
@@ -68,4 +68,4 @@ def login():
         return redirect('/')
     session['user_id'] = user.id
     print("Log in successful.")
-    return redirect('/homepage')
+    return redirect('/wall')
