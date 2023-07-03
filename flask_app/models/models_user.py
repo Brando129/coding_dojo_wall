@@ -7,7 +7,7 @@ import re
 EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
 
 # Database name
-db = "login_and_registration_schema"
+db = "coding_dojo_wall_schema"
 
 # User class
 class User:
