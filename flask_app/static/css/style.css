@@ -7,3 +7,7 @@
 .banner {
     border-bottom: 2px solid black;
 }
+
+.welcome_user {
+    margin-right: 50px;
+}

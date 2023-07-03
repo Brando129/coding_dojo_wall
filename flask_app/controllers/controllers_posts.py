@@ -18,7 +18,6 @@ def create_post():
     print("Create post route...")
     post = models_post.Post.validate_post(request.form)
     if not post:
-        flash("Invalid email address.", "l")
         return redirect('/wall')
     print(request.form)
     models_post.Post.save_post(request.form)
