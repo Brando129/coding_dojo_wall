@@ -4,10 +4,24 @@
     padding: 0px;
 }
 
-.banner {
-    border-bottom: 2px solid black;
+/* Dashboard HTML */
+.dashboard_background {
+    background-image: url("/static/img/stone_wall.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+/* End of Dashboard HTML */
+
+/* Coding Dojo Wall HTML */
+/* Coding Dojo Wall Background */
+.wall_background {
+    background-image: url("/static/img/wall_background.gif");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
-.welcome_user {
-    margin-right: 50px;
+/* Delete button */
+.delete_btn {
+    width: 120px;
 }
+/* End of Coding Dojo Wall HTML */
