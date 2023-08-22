@@ -4,19 +4,7 @@
     padding: 0px;
 }
 
-/* Wall Page */
-.grad {
-    background-image: linear-gradient(teal, orange);
-    /* background-size: cover; */
-    background-repeat: no-repeat;
-}
-
-/* .reg_grad {
-    background-image: linear-gradient(teal, orange);
-    background-size: cover;
-    background-repeat: no-repeat;
-} */
-
+/* Gradient Background */
 .fixed-bg {
     /* The background image */
     background-image: linear-gradient(teal, orange);
@@ -37,23 +25,27 @@
     background-size: cover;
 }
 
+/* App Name Text */
 .app_name {
     font-family: 'Gochi Hand', cursive;
     font-size: 80px;
     color: black;
 }
 
+/* Subtitle Texts */
 .subtitle_txt {
     font-family: 'Gochi Hand', cursive;
     font-size: 40px;
     color: black;
 }
 
+/* User name in the navbar */
 .user_name {
     font-family: 'Gochi Hand', cursive;
     font-size: 30px;
 }
 
+/* Placeholder text color */
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: black;
     opacity: 1; /* Firefox */
