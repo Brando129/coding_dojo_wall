@@ -4,24 +4,67 @@
     padding: 0px;
 }
 
-/* Dashboard HTML */
-.dashboard_background {
-    background-image: url("/static/img/stone_wall.png");
+/* Wall Page */
+.grad {
+    background-image: linear-gradient(teal, orange);
+    /* background-size: cover; */
     background-repeat: no-repeat;
-    background-size: cover;
-}
-/* End of Dashboard HTML */
-
-/* Coding Dojo Wall HTML */
-/* Coding Dojo Wall Background */
-.wall_background {
-    background-image: url("/static/img/wall_background.gif");
-    background-repeat: no-repeat;
-    background-size: cover;
 }
 
-/* Delete button */
-.delete_btn {
-    width: 120px;
+/* .reg_grad {
+    background-image: linear-gradient(teal, orange);
+    background-size: cover;
+    background-repeat: no-repeat;
+} */
+
+.fixed-bg {
+    /* The background image */
+    background-image: linear-gradient(teal, orange);
+
+    /* Set a specified height, or the minimum height for the background image */
+    min-height: 500px;
+
+    /* Set background image to fixed (don't scroll along with the page) */
+    background-attachment: fixed;
+
+    /* Center the background image */
+    background-position: center;
+
+    /* Set the background image to no repeat */
+    background-repeat: no-repeat;
+
+    /* Scale the background image to be as large as possible */
+    background-size: cover;
 }
-/* End of Coding Dojo Wall HTML */
+
+.app_name {
+    font-family: 'Gochi Hand', cursive;
+    font-size: 80px;
+    color: black;
+}
+
+.subtitle_txt {
+    font-family: 'Gochi Hand', cursive;
+    font-size: 40px;
+    color: black;
+}
+
+.user_name {
+    font-family: 'Gochi Hand', cursive;
+    font-size: 30px;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: black;
+    opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: black;
+}
+
+:-ms-input-placeholder { /* Microsoft Edge */
+    color: black;
+}
+
+
